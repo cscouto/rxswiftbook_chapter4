@@ -42,14 +42,17 @@ class MainViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    images
+    let newImages = images.share()
+    newImages
       .subscribe(onNext: { [weak imagePreview] photos in
         guard let preview = imagePreview else { return }
         preview.image = photos.collage(size: preview.frame.size)
       })
       .disposed(by: bag)
     
-    images.asObservable()
+    newImages
+      .asObservable()
+      .throttle(0.5, scheduler: MainScheduler.instance)
       .subscribe(onNext: { [weak self] photos in
         self?.updateUI(photos: photos)
       })
@@ -76,7 +79,16 @@ class MainViewController: UIViewController {
 
   @IBAction func actionAdd() {
     let photosVC = storyboard!.instantiateViewController(withIdentifier: "PhotosViewController") as! PhotosViewController
-    photosVC.selectedPhotos
+    let newPhotos = photosVC.selectedPhotos.share()
+    
+    newPhotos
+      .takeWhile { [weak self] _ in
+        let count = self?.images.value.count ?? 0
+        return count < 6
+      }
+      .filter { newImage in
+        return newImage.size.width > newImage.size.height
+      }
       .subscribe(
         onNext: { [weak self] newImage in
           guard let images = self?.images else { return }
@@ -87,7 +99,27 @@ class MainViewController: UIViewController {
         }
     )
       .disposed(by: bag)
+    
+    newPhotos
+      .ignoreElements()
+      .subscribe(
+        onCompleted: { [weak self] in
+          self?.updateNavigationIcon()
+      }
+    )
+      .disposed(by: bag)
     navigationController?.pushViewController(photosVC, animated: true)
+  }
+  
+  private func updateNavigationIcon() {
+    let icon = imagePreview.image?
+      .scaled(CGSize(width: 22, height: 22))
+      .withRenderingMode(.alwaysOriginal)
+    
+    navigationItem.leftBarButtonItem = UIBarButtonItem(image: icon,
+                                                       style: .done,
+                                                       target: nil,
+                                                       action: nil)
   }
   
   private func updateUI(photos: [UIImage]) {

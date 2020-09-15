@@ -18,6 +18,7 @@
 		9CE7E5E61DE5A40A00C8BA5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CE7E5E51DE5A40A00C8BA5A /* Assets.xcassets */; };
 		9CE7E5E91DE5A40A00C8BA5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CE7E5E71DE5A40A00C8BA5A /* LaunchScreen.storyboard */; };
 		9CE7E5F11DE5A94600C8BA5A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 9CE7E5F01DE5A94600C8BA5A /* Podfile */; };
+		A394C2C425110C8900548D23 /* PHPhotoLibrary+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A394C2C325110C8900548D23 /* PHPhotoLibrary+Rx.swift */; };
 		A3ECE4F92510037500804F20 /* UIViewController+rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ECE4F82510037500804F20 /* UIViewController+rx.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		9CE7E5E81DE5A40A00C8BA5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CE7E5EA1DE5A40A00C8BA5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CE7E5F01DE5A94600C8BA5A /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A394C2C325110C8900548D23 /* PHPhotoLibrary+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PHPhotoLibrary+Rx.swift"; path = "combinestagram/PHPhotoLibrary+Rx.swift"; sourceTree = SOURCE_ROOT; };
 		A3ECE4F82510037500804F20 /* UIViewController+rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+rx.swift"; path = "../../challenges/combinestagram/UIViewController+rx.swift"; sourceTree = "<group>"; };
 		A566D32C51035FFDE3DB8C8A /* Pods-Combinestagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Combinestagram.release.xcconfig"; path = "Target Support Files/Pods-Combinestagram/Pods-Combinestagram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,6 +119,7 @@
 				9CDD7B0A1DE6E38E0058B2D5 /* Classes */,
 				9CDD7B091DE6E37C0058B2D5 /* Assets */,
 				9CE7E5DE1DE5A40A00C8BA5A /* MainViewController.swift */,
+				A394C2C325110C8900548D23 /* PHPhotoLibrary+Rx.swift */,
 				A3ECE4F82510037500804F20 /* UIViewController+rx.swift */,
 				9CDD7B051DE5BC660058B2D5 /* PhotosViewController.swift */,
 				9CDD7B071DE6D7ED0058B2D5 /* PhotoCell.swift */,
@@ -255,6 +258,7 @@
 				9CDD7B061DE5BC660058B2D5 /* PhotosViewController.swift in Sources */,
 				9CDD7B0C1DE6E3D30058B2D5 /* PhotoWriter.swift in Sources */,
 				9CE7E5DF1DE5A40A00C8BA5A /* MainViewController.swift in Sources */,
+				A394C2C425110C8900548D23 /* PHPhotoLibrary+Rx.swift in Sources */,
 				9CE7E5DD1DE5A40A00C8BA5A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
